@@ -1,0 +1,16 @@
+Name: resque
+Cartridge-Short-Name: RESQUE
+Display-Name: Resque
+Version: "1.24.1"
+Website: https://github.com/smarterclayton/openshift-redis-cart
+Cartridge-Version: 0.1.0
+Cartridge-Vendor: pbrazdil
+Categories:
+  - service
+  - database
+  - embedded
+Provides:
+  - resque
+Scaling:
+  Min: 1
+  Max: -1
