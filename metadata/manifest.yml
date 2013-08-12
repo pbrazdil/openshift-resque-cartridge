@@ -7,7 +7,6 @@ Cartridge-Version: 0.1.0
 Cartridge-Vendor: pbrazdil
 Categories:
   - service
-  - database
   - embedded
 Provides:
   - resque

@@ -9,7 +9,7 @@ function start() {
 
     #is redis running?
 
-    rake resque:work QUEUE=*
+    ruby_context "rake resque:work QUEUE=*"
 }
 
 function stop() {
