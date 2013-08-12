@@ -1,3 +1,0 @@
-class BackgroundJob
-
-end

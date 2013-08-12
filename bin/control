@@ -1,5 +1,8 @@
 #!/bin/bash -e
 
+pid=pid/resque.pid
+log=log/resque.log
+
 source $OPENSHIFT_CARTRIDGE_SDK_BASH
 source "${OPENSHIFT_RUBY_DIR}/lib/util"
 source "${OPENSHIFT_RUBY_DIR}/lib/ruby_context"
@@ -9,7 +12,7 @@ function start() {
 
     #is redis running?
 
-    ruby_context "rake resque:work QUEUE=*"
+    ruby_context "env TERM_CHILD=1  QUEUE=* PIDFILE=$pid BAKCGROUND=yes rake resque:work"
 }
 
 function stop() {
