@@ -13,10 +13,12 @@ function start() {
     #TODO: is redis running?
 
     ruby_context "env TERM_CHILD=1  QUEUE=* PIDFILE=$pid BACKGROUND=yes rake resque:work"
+    return 0
 }
 
 function stop() {
     echo "Stopping resque worker"
+    return 0
 
 }
 
