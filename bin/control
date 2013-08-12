@@ -10,14 +10,43 @@ source "${OPENSHIFT_RUBY_DIR}/lib/ruby_context"
 function start() {
     echo "Starting resque worker"
 
-    #is redis running?
+    #TODO: is redis running?
 
-    ruby_context "env TERM_CHILD=1  QUEUE=* PIDFILE=$pid BAKCGROUND=yes rake resque:work"
+    ruby_context "env TERM_CHILD=1  QUEUE=* PIDFILE=$pid BACKGROUND=yes rake resque:work"
 }
 
 function stop() {
-    echo "Stoping resque worker"
+    echo "Stopping resque worker"
 
+}
+
+function status() {
+    echo
+}
+
+function update() {
+    echo
+}
+
+
+function restart() {
+    echo
+}
+
+function build() {
+    echo
+}
+
+function post-deploy() {
+    echo
+}
+
+function pre-build() {
+    echo
+}
+
+function tidy() {
+    echo
 }
 
 case "$1" in
@@ -26,12 +55,9 @@ case "$1" in
   restart | reload ) restart $1 ;;
   status)            status ;;
   tidy)              tidy ;;
-  pre-repo-archive)  pre-repo-archive ;;
   pre-build)         pre-build ;;
   build)             build ;;
   deploy)            deploy ;;
   post-deploy)       post-deploy ;;
-  threaddump)        threaddump ;;
-  update-configuration)   update-configuration $OPENSHIFT_RUBY_VERSION;;
   *)                 exit 0
 esac

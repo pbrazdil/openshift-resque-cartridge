@@ -2,7 +2,7 @@ Name: resque
 Cartridge-Short-Name: RESQUE
 Display-Name: Resque
 Version: "1.24.1"
-Website: https://github.com/smarterclayton/openshift-redis-cart
+Website: https://github.com/pbrazdil/openshift-resque-cartridge
 Cartridge-Version: 0.1.0
 Cartridge-Vendor: pbrazdil
 Categories:
