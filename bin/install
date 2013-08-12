@@ -8,13 +8,11 @@ source $OPENSHIFT_CARTRIDGE_SDK_BASH
 #  exit 1
 #fi
 
+
 client_result "Downloading resque gem..."
 
 gem install --no-ri --no-rdoc resque
 
-for dir in logs pid tmp env; do
-  mkdir -p $dir
-done
 
 client_result ""
 client_result "Installation of Resque was successful!"
