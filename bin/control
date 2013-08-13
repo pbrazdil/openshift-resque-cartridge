@@ -10,14 +10,14 @@ source "${OPENSHIFT_RUBY_DIR}/lib/ruby_context"
 function start() {
     echo "Starting resque worker"
 
-    #TODO: is redis running?
-
     ruby_context "env TERM_CHILD=1  QUEUE=* PIDFILE=$pid BACKGROUND=yes LOG=$log rake resque:work"
     return 0
 }
 
 function stop() {
     echo "Stopping resque worker"
+
+    kill -QUIT $(cat $pid)
     return 0
 
 }
@@ -31,17 +31,17 @@ function status() {
     fi
 }
 
-function update() {
-    echo
-}
-
-
 function restart() {
     if (stop); then
         start
     else
         start
     fi
+}
+
+
+function update() {
+    echo
 }
 
 function build() {

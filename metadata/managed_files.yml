@@ -1,0 +1,9 @@
+locked_files:
+- env/
+
+process_templates:
+- '**/*.erb'
+
+setup_rewritten:
+snapshot_exclusions:
+restore_transforms:

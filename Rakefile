@@ -1,8 +1,9 @@
 require 'resque/tasks'
 
-Rake::Task['resque:work'].enhance [:setting_redis_prereq]
+# first run setting_prereq then resque:work
+Rake::Task['resque:work'].enhance [:setting_prereq]
 
-task :setting_redis_prereq do
+task :setting_prereq do
   require 'resque'
   require 'logger'
 
@@ -13,6 +14,7 @@ task :setting_redis_prereq do
     Resque.logger.level = Logger::DEBUG
   end
 
+  Resque.list_range()
 
   # load the jobs
   Dir["#{ENV['OPENSHIFT_REPO_DIR']}/resque/*"].each {|file| require file}
