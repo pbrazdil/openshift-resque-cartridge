@@ -3,7 +3,9 @@ OpenShift Resque Cartridge
 
 Runs [Resque](https://github.com/resque/resque) on [OpenShift](https://openshift.redhat.com/app/login) using downloadable cartridge support.
 
-[Redis cartridge](https://github.com/smarterclayton/openshift-redis-cart) needs to be installed, then we can proceed to installation of Resque cartridge, run this command in terminal
+First of all [Redis cartridge](https://github.com/smarterclayton/openshift-redis-cart) must be installed.
+
+If it is then we can proceed to installation of Resque cartridge, run this command in terminal
 
     rhc add-cartridge http://cartreflect-claytondev.rhcloud.com/reflect?github=pbrazdil/openshift-resque-cartridge --app YOUR_APPLICATION_NAME
 
@@ -34,7 +36,7 @@ Then if you want to add a new job, just call `Resque.enqueue`
 
     Resque.enqueue(ExampleJob, "some-cool-parameter")
 
-In order to run it properly, `Resque.redis` must be pointed out to Redis running in your application. So, for example if you are running Rails, add a new file `config/initializers/resque_init.rb` with content below.
+In order to run it properly, `Resque.redis` must be pointed out to Redis running in your application. For example if you are running Rails, add a new file `config/initializers/resque_init.rb` with content below.
 
     Resque.redis = Redis.new(:host => ENV['OPENSHIFT_REDIS_HOST'], :port => ENV['OPENSHIFT_REDIS_PORT'], :password => ENV['REDIS_PASSWORD'], :thread_safe => true)
 
