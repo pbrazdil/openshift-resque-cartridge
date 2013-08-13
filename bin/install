@@ -13,9 +13,6 @@ client_result "Downloading resque gem..."
 
 gem install --no-ri --no-rdoc resque
 
-
-client_result ""
 client_result "Installation of Resque was successful!"
-client_result ""
 
 exit 0

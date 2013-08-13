@@ -12,7 +12,7 @@ function start() {
 
     #TODO: is redis running?
 
-    ruby_context "env TERM_CHILD=1  QUEUE=* PIDFILE=$pid BACKGROUND=yes rake resque:work"
+    ruby_context "env TERM_CHILD=1  QUEUE=* PIDFILE=$pid BACKGROUND=yes LOG=$log rake resque:work"
     return 0
 }
 
@@ -23,7 +23,12 @@ function stop() {
 }
 
 function status() {
-    echo
+    client_result $pwd
+    if [ -f $pid ] && ( kill -0 $(cat $pid) ); then
+        client_result "Resque is running"
+    else
+        client_result "Resque is not running"
+    fi
 }
 
 function update() {
@@ -32,7 +37,11 @@ function update() {
 
 
 function restart() {
-    echo
+    if (stop); then
+        start
+    else
+        start
+    fi
 }
 
 function build() {
