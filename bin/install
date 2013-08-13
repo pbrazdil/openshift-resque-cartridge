@@ -3,16 +3,15 @@
 source $OPENSHIFT_CARTRIDGE_SDK_BASH
 
 #if [ -n "${OPENSHIFT_REDIS_HOST}" ]; then
-#  client_result "ERROR: Please install the Redis cartridge first:"
-#  client_result "$ rhc add-cartridge http://cartreflect-claytondev.rhcloud.com/reflect?github=smarterclayton/openshift-redis-cart --app ${OPENSHIFT_APP_NAME}"
+#  client_result "ERROR: Please install the Redis cartridge first"
 #  exit 1
 #fi
 
+mkdir -p log
+mkdir -p pid
 
 client_result "Downloading resque gem..."
-
 gem install --no-ri --no-rdoc resque
-
 client_result "Installation of Resque was successful!"
 
 exit 0
