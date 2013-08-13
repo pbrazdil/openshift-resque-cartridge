@@ -7,9 +7,10 @@ Runs [Resque](https://github.com/resque/resque) on [OpenShift](https://openshift
 
     rhc add-cartridge http://cartreflect-claytondev.rhcloud.com/reflect?github=pbrazdil/openshift-resque-cartridge --app YOUR_APPLICATION_NAME
 
-Any log output will be generated to $OPENSHIFT_RESQUE_DIR/logs/resque.log
+Any log output will be generated to `$OPENSHIFT_RESQUE_DIR/logs/resque.log`
 
 To check if it is all as we expected, lets see if Resque worker is running.
+
     rhc cartridge status resque -a YOUR_APPLICATION_NAME
 
 
